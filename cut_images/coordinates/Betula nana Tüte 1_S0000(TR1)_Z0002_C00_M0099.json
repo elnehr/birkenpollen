@@ -1,0 +1,36 @@
+{
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Corylus",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          1.421346664428711,
+          1141.9135665893555
+        ],
+        [
+          207.67818450927734,
+          1372.019920349121
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "lineColor": [
+    0,
+    255,
+    0,
+    128
+  ],
+  "fillColor": [
+    255,
+    0,
+    0,
+    128
+  ],
+  "imagePath": "Betula nana Tüte 1_S0000(TR1)_Z0002_C00_M0099.jpg",
+  "imageData": null
+}

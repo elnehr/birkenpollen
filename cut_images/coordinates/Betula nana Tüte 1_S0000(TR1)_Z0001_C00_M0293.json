@@ -1,0 +1,36 @@
+{
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Quercus",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          2375.760040283203,
+          457.3406982421875
+        ],
+        [
+          2553.0418395996094,
+          828.797492980957
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "lineColor": [
+    0,
+    255,
+    0,
+    128
+  ],
+  "fillColor": [
+    255,
+    0,
+    0,
+    128
+  ],
+  "imagePath": "Betula nana Tüte 1_S0000(TR1)_Z0001_C00_M0293.jpg",
+  "imageData": null
+}

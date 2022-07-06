@@ -1,0 +1,36 @@
+{
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Nonpollen",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          7.566080093383789,
+          28.041515350341797
+        ],
+        [
+          263.73973846435547,
+          337.3388671875
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "lineColor": [
+    0,
+    255,
+    0,
+    128
+  ],
+  "fillColor": [
+    255,
+    0,
+    0,
+    128
+  ],
+  "imagePath": "Betula nana Tüte 1_S0000(TR1)_Z0002_C00_M0014.jpg",
+  "imageData": null
+}

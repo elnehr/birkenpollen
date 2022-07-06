@@ -1,0 +1,87 @@
+{
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Betula",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          1169.4751739501953,
+          1481.6576385498047
+        ],
+        [
+          1386.0147094726562,
+          1704.6173858642578
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Nonpollen",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          1769.5759582519531,
+          1063.0271530151367
+        ],
+        [
+          2014.8515319824219,
+          1282.6555252075195
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Quercus",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          2337.318115234375,
+          220.29253005981445
+        ],
+        [
+          2558.2220458984375,
+          583.1110382080078
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Nonpollen",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          565.0273132324219,
+          1673.3418273925781
+        ],
+        [
+          849.3223571777344,
+          1908.4741973876953
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "lineColor": [
+    0,
+    255,
+    0,
+    128
+  ],
+  "fillColor": [
+    255,
+    0,
+    0,
+    128
+  ],
+  "imagePath": "Betula nana Tüte 1_S0000(TR1)_Z0000_C00_M0075.jpg",
+  "imageData": null
+}

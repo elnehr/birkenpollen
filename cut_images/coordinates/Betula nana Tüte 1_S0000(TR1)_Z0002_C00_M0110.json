@@ -1,0 +1,36 @@
+{
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Alnus",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          1762.8793334960938,
+          517.0956230163574
+        ],
+        [
+          2042.6632690429688,
+          769.2729377746582
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "lineColor": [
+    0,
+    255,
+    0,
+    128
+  ],
+  "fillColor": [
+    255,
+    0,
+    0,
+    128
+  ],
+  "imagePath": "Betula nana Tüte 1_S0000(TR1)_Z0002_C00_M0110.jpg",
+  "imageData": null
+}

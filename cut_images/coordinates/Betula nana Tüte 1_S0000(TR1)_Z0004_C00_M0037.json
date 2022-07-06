@@ -1,0 +1,87 @@
+{
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Nonpollen",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          1194.3794250488281,
+          310.98134994506836
+        ],
+        [
+          1541.6236877441406,
+          596.8391418457031
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Nonpollen",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          308.4512710571289,
+          281.3824653625488
+        ],
+        [
+          596.1172866821289,
+          544.1172409057617
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Lycopodium",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          1911.7575073242188,
+          797.7993392944336
+        ],
+        [
+          2137.4505615234375,
+          1007.2874450683594
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Nonpollen",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          908.0345916748047,
+          2.523193359375
+        ],
+        [
+          1146.6736602783203,
+          154.58534717559814
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "lineColor": [
+    0,
+    255,
+    0,
+    128
+  ],
+  "fillColor": [
+    255,
+    0,
+    0,
+    128
+  ],
+  "imagePath": "Betula nana Tüte 1_S0000(TR1)_Z0004_C00_M0037.jpg",
+  "imageData": null
+}

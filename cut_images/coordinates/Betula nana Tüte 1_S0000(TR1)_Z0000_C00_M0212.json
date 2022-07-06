@@ -1,0 +1,70 @@
+{
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Betula",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          1566.0598754882812,
+          250.35235404968262
+        ],
+        [
+          1811.9619750976562,
+          525.0207138061523
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Betula",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          410.9183120727539,
+          973.5546112060547
+        ],
+        [
+          646.4871215820312,
+          1176.8824768066406
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Other",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          812.5043487548828,
+          1219.4841384887695
+        ],
+        [
+          1042.6627349853516,
+          1419.0864944458008
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "lineColor": [
+    0,
+    255,
+    0,
+    128
+  ],
+  "fillColor": [
+    255,
+    0,
+    0,
+    128
+  ],
+  "imagePath": "Betula nana Tüte 1_S0000(TR1)_Z0000_C00_M0212.jpg",
+  "imageData": null
+}

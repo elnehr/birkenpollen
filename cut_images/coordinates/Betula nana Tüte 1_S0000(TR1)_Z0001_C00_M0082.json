@@ -1,0 +1,53 @@
+{
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Plantago Lanceolata",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          2139.6925354003906,
+          1667.5728607177734
+        ],
+        [
+          2363.5252380371094,
+          1861.673812866211
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Quercus",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          2142.7906799316406,
+          598.7896156311035
+        ],
+        [
+          2354.679412841797,
+          781.3252830505371
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "lineColor": [
+    0,
+    255,
+    0,
+    128
+  ],
+  "fillColor": [
+    255,
+    0,
+    0,
+    128
+  ],
+  "imagePath": "Betula nana Tüte 1_S0000(TR1)_Z0001_C00_M0082.jpg",
+  "imageData": null
+}

@@ -1,0 +1,87 @@
+{
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Pinus",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          1272.1284484863281,
+          952.7176666259766
+        ],
+        [
+          1510.4212951660156,
+          1186.8717956542969
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Betula",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          802.7961730957031,
+          600.6124877929688
+        ],
+        [
+          1023.8609313964844,
+          820.8174133300781
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Betula",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          141.0304832458496,
+          1681.0693359375
+        ],
+        [
+          350.9522247314453,
+          1890.4048919677734
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Betula",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          656.470947265625,
+          1337.2407531738281
+        ],
+        [
+          842.2079467773438,
+          1532.1302032470703
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "lineColor": [
+    0,
+    255,
+    0,
+    128
+  ],
+  "fillColor": [
+    255,
+    0,
+    0,
+    128
+  ],
+  "imagePath": "Betula nana Tüte 1_S0000(TR1)_Z0000_C00_M0259.jpg",
+  "imageData": null
+}

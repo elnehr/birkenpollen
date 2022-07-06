@@ -1,0 +1,104 @@
+{
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Betula",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          594.97314453125,
+          1588.7560272216797
+        ],
+        [
+          857.0599365234375,
+          1826.960678100586
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Wildgras",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          2366.101531982422,
+          1648.3057022094727
+        ],
+        [
+          2559.951934814453,
+          1869.2970657348633
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Betula",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          2146.1663818359375,
+          96.96272850036621
+        ],
+        [
+          2374.3927001953125,
+          275.55341720581055
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Wildgras",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          41.99235916137695,
+          1138.9226531982422
+        ],
+        [
+          291.37441635131836,
+          1377.1151733398438
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Wildgras",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          2.686591148376465,
+          1262.603530883789
+        ],
+        [
+          161.83019638061523,
+          1487.5799560546875
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "lineColor": [
+    0,
+    255,
+    0,
+    128
+  ],
+  "fillColor": [
+    255,
+    0,
+    0,
+    128
+  ],
+  "imagePath": "Betula nana Tüte 1_S0000(TR1)_Z0003_C00_M0065.jpg",
+  "imageData": null
+}

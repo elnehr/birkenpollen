@@ -1,0 +1,87 @@
+{
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Lycopodium",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          2071.953125,
+          260.1822853088379
+        ],
+        [
+          2410.4568481445312,
+          588.8241577148438
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Betula",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          1500.548095703125,
+          713.8795280456543
+        ],
+        [
+          1746.6610717773438,
+          947.5448799133301
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Betula",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          571.4725494384766,
+          542.4026298522949
+        ],
+        [
+          804.5064544677734,
+          722.8237724304199
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Quercus",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          409.70638275146484,
+          494.52747344970703
+        ],
+        [
+          692.9386138916016,
+          702.1686172485352
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "lineColor": [
+    0,
+    255,
+    0,
+    128
+  ],
+  "fillColor": [
+    255,
+    0,
+    0,
+    128
+  ],
+  "imagePath": "Betula nana Tüte 1_S0000(TR1)_Z0000_C00_M0067.jpg",
+  "imageData": null
+}

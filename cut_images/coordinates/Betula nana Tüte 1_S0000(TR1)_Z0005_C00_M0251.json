@@ -1,0 +1,87 @@
+{
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Alnus",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          2202.8237915039062,
+          1195.298194885254
+        ],
+        [
+          2446.1676025390625,
+          1397.369728088379
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Alnus",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          1268.366928100586,
+          990.6174087524414
+        ],
+        [
+          1481.5345764160156,
+          1175.507469177246
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Nonpollen",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          1192.6045989990234,
+          1141.8761444091797
+        ],
+        [
+          1467.0147705078125,
+          1324.0660858154297
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Lycopodium",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          233.94058227539062,
+          1.5172433853149414
+        ],
+        [
+          640.4527282714844,
+          108.27288150787354
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "lineColor": [
+    0,
+    255,
+    0,
+    128
+  ],
+  "fillColor": [
+    255,
+    0,
+    0,
+    128
+  ],
+  "imagePath": "Betula nana Tüte 1_S0000(TR1)_Z0005_C00_M0251.jpg",
+  "imageData": null
+}

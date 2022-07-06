@@ -1,0 +1,104 @@
+{
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Betula",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          2182.437286376953,
+          1004.1891860961914
+        ],
+        [
+          2421.2461853027344,
+          1223.4506607055664
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Corylus",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          1235.9845733642578,
+          1.781930923461914
+        ],
+        [
+          1495.7424926757812,
+          162.5009536743164
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Nonpollen",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          257.8544235229492,
+          1753.2174682617188
+        ],
+        [
+          474.1647720336914,
+          1920
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Alnus",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          364.75669860839844,
+          1280.1904678344727
+        ],
+        [
+          564.5499420166016,
+          1475.1554489135742
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Nonpollen",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          277.95549392700195,
+          1496.2255096435547
+        ],
+        [
+          468.18138122558594,
+          1660.382080078125
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "lineColor": [
+    0,
+    255,
+    0,
+    128
+  ],
+  "fillColor": [
+    255,
+    0,
+    0,
+    128
+  ],
+  "imagePath": "Betula nana Tüte 1_S0000(TR1)_Z0005_C00_M0198.jpg",
+  "imageData": null
+}

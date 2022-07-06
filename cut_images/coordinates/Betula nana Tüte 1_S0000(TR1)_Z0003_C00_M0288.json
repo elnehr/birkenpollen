@@ -1,0 +1,121 @@
+{
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Pinus",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          620.0940704345703,
+          678.607177734375
+        ],
+        [
+          1111.6631317138672,
+          1176.4829635620117
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Betula",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          1281.0751342773438,
+          65.68313598632812
+        ],
+        [
+          1546.85546875,
+          292.51636505126953
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Nonpollen",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          116.64664268493652,
+          1618.9472579956055
+        ],
+        [
+          343.85486602783203,
+          1840.828514099121
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Betula",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          482.6734924316406,
+          901.2148475646973
+        ],
+        [
+          688.3831024169922,
+          1079.981689453125
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Pinus",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          549.7408294677734,
+          1142.7370834350586
+        ],
+        [
+          1021.3277435302734,
+          1644.6747207641602
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Nonpollen",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          1398.2472229003906,
+          654.9801063537598
+        ],
+        [
+          1763.9710998535156,
+          857.0633125305176
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "lineColor": [
+    0,
+    255,
+    0,
+    128
+  ],
+  "fillColor": [
+    255,
+    0,
+    0,
+    128
+  ],
+  "imagePath": "Betula nana Tüte 1_S0000(TR1)_Z0003_C00_M0288.jpg",
+  "imageData": null
+}

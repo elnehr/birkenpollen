@@ -1,0 +1,87 @@
+{
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Nonpollen",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          840.1083374023438,
+          1256.389389038086
+        ],
+        [
+          1267.7915954589844,
+          1656.214370727539
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Nonpollen",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          1237.5932312011719,
+          610.1310539245605
+        ],
+        [
+          1477.1607971191406,
+          789.1577339172363
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Pinus Halbe",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          199.11766052246094,
+          4.437603950500488
+        ],
+        [
+          643.0741119384766,
+          229.84143733978271
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Nonpollen",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          1230.1895141601562,
+          743.5129165649414
+        ],
+        [
+          1510.44189453125,
+          1053.2405090332031
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "lineColor": [
+    0,
+    255,
+    0,
+    128
+  ],
+  "fillColor": [
+    255,
+    0,
+    0,
+    128
+  ],
+  "imagePath": "Betula nana Tüte 1_S0000(TR1)_Z0003_C00_M0295.jpg",
+  "imageData": null
+}

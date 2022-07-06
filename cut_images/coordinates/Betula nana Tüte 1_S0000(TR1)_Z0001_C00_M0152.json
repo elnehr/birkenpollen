@@ -1,0 +1,104 @@
+{
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Betula",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          2339.099884033203,
+          567.5305938720703
+        ],
+        [
+          2558.390350341797,
+          759.0800857543945
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Betula",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          0.15625953674316406,
+          441.8925476074219
+        ],
+        [
+          174.7658920288086,
+          622.364616394043
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Plantago Lanceolata",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          1561.2680053710938,
+          1177.60986328125
+        ],
+        [
+          1784.5816040039062,
+          1376.4127349853516
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Betula",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          1822.5328063964844,
+          1046.3263320922852
+        ],
+        [
+          2047.9389953613281,
+          1235.9814834594727
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Betula",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          1207.7122497558594,
+          1840.342025756836
+        ],
+        [
+          1451.7503356933594,
+          1918.0476379394531
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "lineColor": [
+    0,
+    255,
+    0,
+    128
+  ],
+  "fillColor": [
+    255,
+    0,
+    0,
+    128
+  ],
+  "imagePath": "Betula nana Tüte 1_S0000(TR1)_Z0001_C00_M0152.jpg",
+  "imageData": null
+}

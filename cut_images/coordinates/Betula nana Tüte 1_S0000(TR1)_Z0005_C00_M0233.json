@@ -1,0 +1,138 @@
+{
+  "flags": {},
+  "shapes": [
+    {
+      "label": "Other",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          1152.8131103515625,
+          3.1313467025756836
+        ],
+        [
+          1597.6400756835938,
+          239.3870973587036
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Other",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          1770.2690124511719,
+          383.3912658691406
+        ],
+        [
+          2003.4800720214844,
+          630.7597732543945
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Nonpollen",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          1907.8263854980469,
+          2.8639590740203857
+        ],
+        [
+          2258.960418701172,
+          116.96123600006104
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Nonpollen",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          421.82098388671875,
+          1406.4958190917969
+        ],
+        [
+          609.8180389404297,
+          1599.1486358642578
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Nonpollen",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          0,
+          0.10517120361328125
+        ],
+        [
+          157.19647407531738,
+          159.23654079437256
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Betula",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          2210.6466674804688,
+          1389.3159484863281
+        ],
+        [
+          2428.3041381835938,
+          1551.8797302246094
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    },
+    {
+      "label": "Lycopodium",
+      "line_color": null,
+      "fill_color": null,
+      "points": [
+        [
+          2120.8518981933594,
+          1723.2428741455078
+        ],
+        [
+          2544.7947692871094,
+          1918.95263671875
+        ]
+      ],
+      "shape_type": "rectangle",
+      "flags": {}
+    }
+  ],
+  "lineColor": [
+    0,
+    255,
+    0,
+    128
+  ],
+  "fillColor": [
+    255,
+    0,
+    0,
+    128
+  ],
+  "imagePath": "Betula nana Tüte 1_S0000(TR1)_Z0005_C00_M0233.jpg",
+  "imageData": null
+}
