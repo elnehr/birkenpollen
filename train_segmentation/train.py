@@ -30,7 +30,7 @@ def ReadRandomImage(): # First lets load random image and  the corresponding ann
 #--------------Load batch of images-----------------------------------------------------
 def LoadBatch(): # Load batch of images
     images = torch.zeros([batchSize,3,height,width])
-    ann = torch.zeros([batchSize, height, width])
+    ann = torch.zeros([batchSize, 1, height, width])
     for i in range(batchSize):
         images[i],ann[i]=ReadRandomImage()
     return images, ann
@@ -38,7 +38,7 @@ def LoadBatch(): # Load batch of images
 device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
 print(device)
 Net = torchvision.models.segmentation.deeplabv3_resnet50(pretrained=True) # Load net
-Net.classifier[4] = torch.nn.Conv2d(256, 2, kernel_size=(1, 1), stride=(1, 1)) # Change final layer to 2 classes
+Net.classifier[4] = torch.nn.Conv2d(256, 1, kernel_size=(1, 1), stride=(1, 1)) # Change final layer to 2 classes
 Net=Net.to(device)
 optimizer=torch.optim.Adam(params=Net.parameters(),lr=Learning_Rate) # Create adam optimizer
 #----------------Train--------------------------------------------------------------------------
@@ -48,9 +48,10 @@ def train():
        images=torch.autograd.Variable(images,requires_grad=False).to(device) # Load image
        ann = torch.autograd.Variable(ann, requires_grad=False).to(device) # Load annotation
        Pred=Net(images)['out'] # make prediction
+       Pred=torch.sigmoid(Pred)
        Net.zero_grad()
        criterion = torch.nn.BCELoss() # Set loss function
-       Loss=criterion(Pred,ann.long()) # Calculate cross entropy loss
+       Loss=criterion(Pred,ann.float()) # Calculate cross entropy loss
        Loss.backward() # Backpropogate loss
        optimizer.step() # Apply gradient descent change to weight
        seg = torch.argmax(Pred[0], 0).cpu().detach().numpy()  # Get  prediction classes
