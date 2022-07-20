@@ -43,7 +43,7 @@ Net=Net.to(device)
 optimizer=torch.optim.Adam(params=Net.parameters(),lr=Learning_Rate) # Create adam optimizer
 #----------------Train--------------------------------------------------------------------------
 def train():
-    for itr in range(10000): # Training loop
+    for itr in range(1000): # Training loop
        images,ann=LoadBatch() # Load taining batch
        images=torch.autograd.Variable(images,requires_grad=False).to(device) # Load image
        ann = torch.autograd.Variable(ann, requires_grad=False).to(device) # Load annotation
@@ -56,7 +56,7 @@ def train():
        optimizer.step() # Apply gradient descent change to weight
        seg = torch.argmax(Pred[0], 0).cpu().detach().numpy()  # Get  prediction classes
        print(itr,") Loss=",Loss.data.cpu().numpy())
-       if itr % 100 == 0: #Save model weight once every 60k steps permenant file
+       if itr % 100 == 0: #Save model weight once every 100 steps permenant file
             print("Saving Model" +str(itr) + ".torch")
             torch.save(Net.state_dict(),   str(itr) + ".torch")
 
