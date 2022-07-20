@@ -5,8 +5,8 @@ import torchvision.transforms as tf
 import matplotlib.pyplot as plt
 import os
 import numpy as np
-modelPath = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'train_segmentation/800.torch'))  # Path to trained model
-imagePath = "test.png"  # Test image
+modelPath = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'train_segmentation/4500.torch'))  # Path to trained model
+imagePath = "test2.png"  # Test image
 height=width=250
 transformImg = tf.Compose([tf.ToPILImage(), tf.Resize((height, width)), tf.ToTensor()])  # tf.Resize((300,600)),tf.RandomRotation(145)])#
 
@@ -30,13 +30,11 @@ print(Prd.shape)
 Prd = tf.Resize((height_orgin,widh_orgin))(Prd[0]) # Resize to origninal size
 #visualize Prd
 Prd = torch.squeeze(Prd) #reduce dimension to (width,height)
-#Prd = Prd.numpy()
-#fig = np.where(Prd>0.5,1,0)
-#plt.imshow(fig)
-#plt.show()
 
 seg = Prd.cpu().detach().numpy()  # Get  prediction classes
-print(seg)
-#plt.imshow(seg)  # display image
-plt.imshow(np.where(seg<0.24,1,0))
+
+plt.imshow(seg)  # display image
+plt.colorbar()
 plt.show()
+
+#plt.imshow(np.where(seg<0.34,1,0))
