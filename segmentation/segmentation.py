@@ -5,8 +5,13 @@ import torchvision.transforms as tf
 import matplotlib.pyplot as plt
 import os
 import numpy as np
-modelPath = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'train_segmentation/4500.torch'))  # Path to trained model
-imagePath = "test2.png"  # Test image
+import torchvision.transforms.functional as F
+from torchvision.utils import draw_segmentation_masks
+from torchvision.io.image import read_image
+import torchvision.transforms as T
+
+modelPath = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'train_segmentation/500.torch'))  # Path to trained model
+imagePath = "test3.png"  # Test image
 height=width=250
 transformImg = tf.Compose([tf.ToPILImage(), tf.Resize((height, width)), tf.ToTensor()])  # tf.Resize((300,600)),tf.RandomRotation(145)])#
 
@@ -34,7 +39,15 @@ Prd = torch.squeeze(Prd) #reduce dimension to (width,height)
 seg = Prd.cpu().detach().numpy()  # Get  prediction classes
 
 plt.imshow(seg)  # display image
+#plt.imshow(np.where(seg>0.6,1,0))  # display image
 plt.colorbar()
 plt.show()
 
-#plt.imshow(np.where(seg<0.34,1,0))
+boolean_mask = (Prd>0.45)
+print(f"shape = {boolean_mask.shape}, dtype = {boolean_mask.dtype}")
+img = read_image(imagePath)
+transform  = T.Resize((height_orgin , widh_orgin))
+img = transform(img)
+pollen_with_mask = draw_segmentation_masks(img, masks=boolean_mask, alpha=0.7)
+F.to_pil_image(pollen_with_mask).show()
+

@@ -29,10 +29,12 @@ def ReadRandomImage(image_list): # First lets load random image and  the corresp
     Filled =  PIL.Image.open(os.path.join("Masken", image_list[idx])).convert("L") # 0 = grayscale
     Filled = np.array(Filled)
     AnnMap = np.zeros(Img.shape[0:2],np.float32)  # Create empty annotation map
-    if Filled is not None:  AnnMap[ Filled  == 1 ] = 2  # Fill annotation map with 1 for filled pixels
+    if Filled is not None:  AnnMap[ Filled  == 255 ] = 1  # Fill annotation map with 1 for filled pixels
     Img=transformImg(Img)
     AnnMap=transformAnn(AnnMap)
     return Img,AnnMap
+
+
 #--------------Load batch of images-----------------------------------------------------
 def LoadBatch(image_list): # Load batch of images
     images = torch.zeros([batchSize,3,height,width])
@@ -64,7 +66,7 @@ def test(): # compute test loss
     return test_loss
 
 def train():
-    for itr in range(5000): # Training loop
+    for itr in range(501): # Training loop
        images,ann=LoadBatch(train_list) # Load taining batch
        images=torch.autograd.Variable(images,requires_grad=False).to(device) # Load image
        ann = torch.autograd.Variable(ann, requires_grad=False).to(device) # Load annotation
@@ -93,5 +95,6 @@ plt.plot(df['Iteration'], df['Train Loss'], label='Train Loss')
 plt.plot(df['Iteration'], df['Test Loss'], label='Test Loss')
 plt.legend()
 plt.show()
+
 
 

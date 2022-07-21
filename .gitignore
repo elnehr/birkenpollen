@@ -1,1 +1,5 @@
 train_segmentation/*.torch
+cut_images/betula_jpgs2/
+cut_images/coordinates2/
+cut_images/cropped_imgs2/
+cut_images/betula_cropping2.py

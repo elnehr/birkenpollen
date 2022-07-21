@@ -7,9 +7,6 @@ path_to_json = 'coordinates/'
 json_files = [pos_json for pos_json in os.listdir(path_to_json) if pos_json.endswith('.json')]
 
 
-f = open("coordinates/Betula nana Tüte 1_S0000(TR1)_Z0000_C00_M0002.json")
-json_text = json.load(f)
-
 # this finds our json files
 path_to_json = 'coordinates/'
 json_files = [pos_json for pos_json in os.listdir(path_to_json) if pos_json.endswith('.json')]
