@@ -14,9 +14,10 @@ batchSize=3
 
 TrainFolder="Imgs/"
 ListImages=os.listdir(os.path.join(TrainFolder)) # Create list of images
-#split the list randomly into 80% train and 20% test images
-train_list = ListImages[0:int(len(ListImages)*0.8)]
-test_list = ListImages[int(len(ListImages)*0.8):]
+
+train_size = int(0.8 * len(ListImages))
+test_size = len(ListImages) - train_size
+train_list, test_list = torch.utils.data.random_split(ListImages, [train_size, test_size])
 
 #----------------------------------------------Transform image-------------------------------------------------------------------
 transformImg=tf.Compose([tf.ToPILImage(),tf.Resize((height,width)),tf.ToTensor()])
