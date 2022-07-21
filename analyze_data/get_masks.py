@@ -9,6 +9,7 @@ import PIL
 
 ImageFolder="images/"
 ListImages=os.listdir(os.path.join(ImageFolder)) # Create list of images
+ListImages = [x for x in ListImages if not x.startswith('.')]
 
 modelPath = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'train_segmentation/500.torch'))  # Path to trained model
 height=width=250
@@ -20,6 +21,7 @@ Net.classifier[4] = torch.nn.Conv2d(256, 1, kernel_size=(1, 1), stride=(1, 1))  
 Net = Net.to(device)  # Set net to GPU or CPU
 Net.load_state_dict(torch.load(modelPath)) # Load trained model
 Net.eval() # Set to evaluation mode
+print("Loaded model")
 
 for image in ListImages:
     print(image)
@@ -33,9 +35,7 @@ for image in ListImages:
     with torch.no_grad():
         Prd = Net(Img)['out']  # Run net
     Prd = torch.sigmoid(Prd)
-    print(Prd)
-    print(Prd.shape)
-    Prd = tf.Resize((height_orgin,widh_orgin))(Prd[0]) # Resize to origninal size
+    Prd = tf.Resize((height_orgin,widh_orgin))(Prd[0]) # Resize to original size
     #visualize Prd
     Prd = torch.squeeze(Prd) #reduce dimension to (width,height)
 
@@ -46,6 +46,7 @@ for image in ListImages:
     boolean_mask = boolean_mask.astype(np.uint8)
     boolean_mask = boolean_mask * 255
     boolean_mask = boolean_mask.astype(np.uint8)
-    cv2.imwrite("masks/" + image, boolean_mask)
+    cv2.imencode(".png", boolean_mask)[1].tofile(os.path.join("masks/", image))
+
 
 
