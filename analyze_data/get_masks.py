@@ -23,30 +23,31 @@ Net.load_state_dict(torch.load(modelPath)) # Load trained model
 Net.eval() # Set to evaluation mode
 print("Loaded model")
 
-for image in ListImages:
-    print(image)
-    image = image.replace('Ã¼', 'ü')
-    print(ImageFolder + image)
-    Img = PIL.Image.open(os.path.join(ImageFolder, image)) # load test image
-    Img = np.array(Img)[:, :, 0:3] # remove alpha channel
-    height_orgin , widh_orgin ,d = Img.shape # Get image original size
-    Img = transformImg(Img)  # Transform to pytorch
-    Img = torch.autograd.Variable(Img, requires_grad=False).to(device).unsqueeze(0)
-    with torch.no_grad():
-        Prd = Net(Img)['out']  # Run net
-    Prd = torch.sigmoid(Prd)
-    Prd = tf.Resize((height_orgin,widh_orgin))(Prd[0]) # Resize to original size
-    #visualize Prd
-    Prd = torch.squeeze(Prd) #reduce dimension to (width,height)
+def get_masks(threshold):
+    for image in ListImages:
+        print(image)
+        image = image.replace('Ã¼', 'ü')
+        print(ImageFolder + image)
+        Img = PIL.Image.open(os.path.join(ImageFolder, image)) # load test image
+        Img = np.array(Img)[:, :, 0:3] # remove alpha channel
+        height_orgin , widh_orgin ,d = Img.shape # Get image original size
+        Img = transformImg(Img)  # Transform to pytorch
+        Img = torch.autograd.Variable(Img, requires_grad=False).to(device).unsqueeze(0)
+        with torch.no_grad():
+            Prd = Net(Img)['out']  # Run net
+        Prd = torch.sigmoid(Prd)
+        Prd = tf.Resize((height_orgin,widh_orgin))(Prd[0]) # Resize to original size
+        #visualize Prd
+        Prd = torch.squeeze(Prd) #reduce dimension to (width,height)
 
-    boolean_mask = (Prd>0.45)
+        boolean_mask = (Prd>threshold)
 
-    # save boolean_mask to png
-    boolean_mask = boolean_mask.cpu().detach().numpy()
-    boolean_mask = boolean_mask.astype(np.uint8)
-    boolean_mask = boolean_mask * 255
-    boolean_mask = boolean_mask.astype(np.uint8)
-    cv2.imencode(".png", boolean_mask)[1].tofile(os.path.join("masks/", image))
+        # save boolean_mask to png
+        boolean_mask = boolean_mask.cpu().detach().numpy()
+        boolean_mask = boolean_mask.astype(np.uint8)
+        boolean_mask = boolean_mask * 255
+        boolean_mask = boolean_mask.astype(np.uint8)
+        cv2.imencode(".png", boolean_mask)[1].tofile(os.path.join("masks/", image))
 
-
+get_masks(0.59)
 

@@ -67,7 +67,7 @@ def test(): # compute test loss
     return test_loss
 
 def train():
-    for itr in range(501): # Training loop
+    for itr in range(5001): # Training loop
        images,ann=LoadBatch(train_list) # Load taining batch
        images=torch.autograd.Variable(images,requires_grad=False).to(device) # Load image
        ann = torch.autograd.Variable(ann, requires_grad=False).to(device) # Load annotation
@@ -97,5 +97,6 @@ plt.plot(df['Iteration'], df['Test Loss'], label='Test Loss')
 plt.legend()
 plt.show()
 
+print(test_list)
 
 

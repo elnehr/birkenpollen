@@ -10,8 +10,8 @@ from torchvision.utils import draw_segmentation_masks
 from torchvision.io.image import read_image
 import torchvision.transforms as T
 
-modelPath = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'train_segmentation/500.torch'))  # Path to trained model
-imagePath = "test3.png"  # Test image
+modelPath = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'train_segmentation/5000.torch'))  # Path to trained model
+imagePath = "test.png"  # Test image
 height=width=250
 transformImg = tf.Compose([tf.ToPILImage(), tf.Resize((height, width)), tf.ToTensor()])  # tf.Resize((300,600)),tf.RandomRotation(145)])#
 
@@ -48,6 +48,6 @@ print(f"shape = {boolean_mask.shape}, dtype = {boolean_mask.dtype}")
 img = read_image(imagePath)
 transform  = T.Resize((height_orgin , widh_orgin))
 img = transform(img)
-pollen_with_mask = draw_segmentation_masks(img, masks=boolean_mask, alpha=0.7)
+pollen_with_mask = draw_segmentation_masks(img, masks=boolean_mask, alpha=0.4)
 F.to_pil_image(pollen_with_mask).show()
 
