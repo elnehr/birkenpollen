@@ -19,12 +19,13 @@ for index, js in enumerate(json_files):
     with open(os.path.join(path_to_json, js)) as json_file:
         json_text = json.load(json_file)
 
-        for i, shape in enumerate(json_text['shapes']):
-            imagePath = json_text['imagePath']
-            objectnr = i
-            label = json_text['shapes'][i]['label']
-            points = json_text['shapes'][i]['points']
-            jsons_data.loc[index + i] = [imagePath, objectnr, label, points]
+    for i, shape in enumerate(json_text['shapes']):
+        imagePath = json_text['imagePath']
+        objectnr = i
+        label = json_text['shapes'][i]['label']
+        points = json_text['shapes'][i]['points']
+        jsons_data.loc[len(jsons_data)] = [imagePath, objectnr, label, points] #mistake here: index + i; index is the index of the json file, i is the index of the shape in the json file
+
 
 df = jsons_data.loc[jsons_data['label'] == 'Betula', ]
 df['imagePath'] = df['imagePath'].str.replace('Ã¼', 'ü')

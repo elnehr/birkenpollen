@@ -10,8 +10,11 @@ from torchvision.utils import draw_segmentation_masks
 from torchvision.io.image import read_image
 import torchvision.transforms as T
 
+ImageFolder="images/"
+ListImages=os.listdir(os.path.join(ImageFolder)) # Create list of images
+ListImages = [x for x in ListImages if not x.startswith('.')]
+
 modelPath = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'train_segmentation/5000.torch'))  # Path to trained model
-imagePath = "test.png"  # Test image
 height=width=250
 transformImg = tf.Compose([tf.ToPILImage(), tf.Resize((height, width)), tf.ToTensor()])  # tf.Resize((300,600)),tf.RandomRotation(145)])#
 
@@ -21,33 +24,37 @@ Net.classifier[4] = torch.nn.Conv2d(256, 1, kernel_size=(1, 1), stride=(1, 1))  
 Net = Net.to(device)  # Set net to GPU or CPU
 Net.load_state_dict(torch.load(modelPath)) # Load trained model
 Net.eval() # Set to evaluation mode
-Img = cv2.imread(imagePath) # load test image
-height_orgin , widh_orgin ,d = Img.shape # Get image original size
-plt.imshow(Img[:,:,::-1])  # Show image
-plt.show()
-Img = transformImg(Img)  # Transform to pytorch
-Img = torch.autograd.Variable(Img, requires_grad=False).to(device).unsqueeze(0)
-with torch.no_grad():
-    Prd = Net(Img)['out']  # Run net
-Prd = torch.sigmoid(Prd)
-print(Prd)
-print(Prd.shape)
-Prd = tf.Resize((height_orgin,widh_orgin))(Prd[0]) # Resize to origninal size
-#visualize Prd
-Prd = torch.squeeze(Prd) #reduce dimension to (width,height)
 
-seg = Prd.cpu().detach().numpy()  # Get  prediction classes
+def image_with_mask(imagePath):
+    Img = cv2.imread(imagePath) # load test image
+    height_orgin , widh_orgin ,d = Img.shape # Get image original size
+    plt.imshow(Img[:,:,::-1])  # Show image
+    plt.show()
+    Img = transformImg(Img)  # Transform to pytorch
+    Img = torch.autograd.Variable(Img, requires_grad=False).to(device).unsqueeze(0)
+    with torch.no_grad():
+        Prd = Net(Img)['out']  # Run net
+    Prd = torch.sigmoid(Prd)
+    Prd = tf.Resize((height_orgin,widh_orgin))(Prd[0]) # Resize to origninal size
+    #visualize Prd
+    Prd = torch.squeeze(Prd) #reduce dimension to (width,height)
 
-plt.imshow(seg)  # display image
-#plt.imshow(np.where(seg>0.6,1,0))  # display image
-plt.colorbar()
-plt.show()
+    seg = Prd.cpu().detach().numpy()  # Get  prediction classes
 
-boolean_mask = (Prd>0.45)
-print(f"shape = {boolean_mask.shape}, dtype = {boolean_mask.dtype}")
-img = read_image(imagePath)
-transform  = T.Resize((height_orgin , widh_orgin))
-img = transform(img)
-pollen_with_mask = draw_segmentation_masks(img, masks=boolean_mask, alpha=0.4)
-F.to_pil_image(pollen_with_mask).show()
+    plt.imshow(seg)  # display image
+    #plt.imshow(np.where(seg>0.6,1,0))  # display image
+    plt.colorbar()
+    plt.show()
 
+    boolean_mask = (Prd>0.59)
+    print(f"shape = {boolean_mask.shape}, dtype = {boolean_mask.dtype}")
+    img = read_image(imagePath)
+    transform  = T.Resize((height_orgin , widh_orgin))
+    img = transform(img)
+    pollen_with_mask = draw_segmentation_masks(img, masks=boolean_mask, alpha=0.3)
+    # return as png
+    return F.to_pil_image(pollen_with_mask)
+
+for image in ListImages:
+    img = image_with_mask(ImageFolder + image)
+    img.save("images_masks/" + image + ".png")
