@@ -1,6 +1,6 @@
 from shutil import copyfile
 import os
-from pollen_size import get_area
+from get_area import get_area
 import pandas as pd
 import matplotlib.pyplot as plt
 from get_masks import get_masks
@@ -10,7 +10,7 @@ import numpy as np
 masks_model = "masks/"
 masks_manual = "masks_manual/"
 
-
+#get the a
 df_model = get_area(masks_model)
 df_manual = get_area(masks_manual)
 
@@ -27,6 +27,10 @@ plt.ylabel('pixel_area_manual')
 plt.show()
 
 
+MaskFolder = "masks/"
+masks_manual_folder = "masks_manual/"
+ListMasks=os.listdir(os.path.join(MaskFolder))
+ListMasks = [x for x in ListMasks if not x.startswith('.')]
 
 
 def dice_coef(y_true, y_pred):
@@ -36,12 +40,9 @@ def dice_coef(y_true, y_pred):
     smooth = 0.0001 # to avoid division by 0
     return (2. * intersection + smooth) / (np.sum(y_true_f) + np.sum(y_pred_f) + smooth)
 
-MaskFolder = "masks/"
-masks_manual_folder = "masks_manual/"
-ListMasks=os.listdir(os.path.join(MaskFolder))
-ListMasks = [x for x in ListMasks if not x.startswith('.')]
 
-def get_dice_score():
+
+def get_dice_coef():
     df = pd.DataFrame(columns=['image', 'dice_coef'])
     for mask in ListMasks:
         Filled =  PIL.Image.open(os.path.join(MaskFolder, mask)).convert("L") # 0 = grayscale
@@ -57,24 +58,18 @@ def get_dice_score():
         #calculate the dice score
         dice_score = dice_coef(AnnMap, AnnMap_manual)
         df.loc[len(df)] = [mask, dice_score]
-        return df['dice_coef'].mean()
-
-
-def test_threshold():
-    df = pd.DataFrame(columns=['threshold', 'dice_coef'])
-    for threshold in range(550, 650, 2):
-        get_masks(threshold/1000)
-        df.loc[len(df)] = [threshold, get_dice_score()]
+        print(mask)
     return df
 
 
-df2 = test_threshold()
 
-# plot the dice score vs the threshold
-plt.plot(df2['threshold'], df2['dice_coef'], 'ro')
-plt.xlabel('threshold')
-plt.ylabel('dice_coef')
-plt.show()
+df2 = get_dice_coef()
+
+df = pd.merge(df, df2, on='image', how='outer')
+
+df.to_csv('model_test.csv')
+
+print(df)
 
 
 

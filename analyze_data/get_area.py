@@ -8,13 +8,14 @@ import matplotlib.pyplot as plt
 
 
 MaskFolder = "masks/"
-ListMasks=os.listdir(os.path.join(MaskFolder))
-ListMasks = [x for x in ListMasks if not x.startswith('.')]
 
-def get_area(MaskFolder):
+
+def get_area(maskfolder):
+    ListMasks = os.listdir(os.path.join(maskfolder))
+    ListMasks = [x for x in ListMasks if not x.startswith('.')]
     df = pd.DataFrame(columns=['image', 'pixel_area'])
     for mask in ListMasks:
-        Filled =  PIL.Image.open(os.path.join(MaskFolder, mask)).convert("L") # 0 = grayscale
+        Filled =  PIL.Image.open(os.path.join(maskfolder, mask)).convert("L") # 0 = grayscale
         Filled = np.array(Filled)
         AnnMap = np.zeros(Filled.shape[0:2],np.float32)  # Create empty annotation map
         if Filled is not None:  AnnMap[ Filled  == 255 ] = 1
@@ -24,10 +25,11 @@ def get_area(MaskFolder):
         df.loc[len(df)] = [mask, area]
     return df
 
-df = get_area(MaskFolder)
+if __name__ == "main":
+    df = get_area(MaskFolder)
 
-df.to_csv('mask_area.csv', index=False)
+    df.to_csv('mask_area.csv', index=False)
 
-#histogram of the area of the masks
-plt.hist(df['pixel_area'], bins=100)
-plt.show()
+    #histogram of the area of the masks
+    plt.hist(df['pixel_area'], bins=100)
+    plt.show()

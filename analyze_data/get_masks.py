@@ -25,9 +25,7 @@ print("Loaded model")
 
 def get_masks(threshold):
     for image in ListImages:
-        print(image)
         image = image.replace('Ã¼', 'ü')
-        print(ImageFolder + image)
         Img = PIL.Image.open(os.path.join(ImageFolder, image)) # load test image
         Img = np.array(Img)[:, :, 0:3] # remove alpha channel
         height_orgin , widh_orgin ,d = Img.shape # Get image original size
@@ -49,5 +47,5 @@ def get_masks(threshold):
         boolean_mask = boolean_mask.astype(np.uint8)
         cv2.imencode(".png", boolean_mask)[1].tofile(os.path.join("masks/", image))
 
-get_masks(0.59)
+get_masks(0.44)
 
