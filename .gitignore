@@ -6,3 +6,5 @@ cut_images/betula_cropping2.py
 README_Kopie.md
 cut_images/
 segmentation/
+analyze_model/model_test.csv
+train_segmentation/test_list.csv

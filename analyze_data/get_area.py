@@ -27,7 +27,6 @@ def get_area(maskfolder):
 
 if __name__ == "main":
     df = get_area(MaskFolder)
-
     df.to_csv('mask_area.csv', index=False)
 
     #histogram of the area of the masks
