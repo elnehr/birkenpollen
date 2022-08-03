@@ -10,4 +10,3 @@ analyze_model/model_test.csv
 train_segmentation/test_list.csv
 analyze_model/__pycache__/
 Run_get_area.bat
-data/*.csv

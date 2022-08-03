@@ -1,5 +1,6 @@
 # Semantic Segmentatation to Measure Pollen Area
-
+This is a tool to measure the area of pollen in images. It uses a semantic segmentation model and is partly 
+based on the following [tutorial](https://expoundai.wordpress.com/2019/08/30/transfer-learning-for-segmentation-using-deeplabv3-in-pytorch/).
 
 
 ## Get started
