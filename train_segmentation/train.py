@@ -120,10 +120,13 @@ def train():
             print("Saving Model" +str(itr) + ".torch")
             torch.save(Net.state_dict(),   str(itr) + ".torch")
 
+       df.to_csv("loss.csv", index=False) # Save loss values to csv file
+
+
 
 # save test_list to csv file
-test_list_csv = pd.DataFrame(list(test_list))
-test_list_csv.to_csv("test_list.csv", index=False)
+#test_list_csv = pd.DataFrame(list(test_list))
+#test_list_csv.to_csv("test_list.csv", index=False)
 
 train()
 

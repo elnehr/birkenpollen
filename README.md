@@ -1,27 +1,41 @@
 # Semantic Segmentatation to Measure Pollen Area
 This is a tool to measure the area of pollen in images. It uses a semantic segmentation model and is partly 
-based on the following [tutorial](https://expoundai.wordpress.com/2019/08/30/transfer-learning-for-segmentation-using-deeplabv3-in-pytorch/).
+based on code by [M. S. Minhas](https://github.com/msminhas93/DeepLabv3FineTuning).
 
 
 ## Get started
 
+To use this tool [Python 3](https://www.python.org/downloads/) is required. To install the dependencies, run the following terminal command:
+
+'''
+pip install -r requirements.txt
+'''
+
 
 ## Picture Format
 
-The pictures used should contain a single pollen in the center of the image that isn't touching the image borders. Parts of other Pollen and other pollution in the picture does not 
-pose a problem.  The file format must be a .png file.
+The pictures used should contain a single pollen in the center of the image that isn't touching the image borders. Parts of other pollen and pollution in the picture does not 
+pose a problem if it's not in front of the pollen of interest.  The file format must be .png
+
 
 Examples for usable pictures:
-![My Image](sample_imgs/ok1.png)
-![My Image](sample_imgs/ok2.png)
-![My Image](sample_imgs/ok3.png)
+
+<p float="left">
+	<img src="sample_imgs/ok1.png" alt="image" width="170"/>
+	<img src="sample_imgs/ok2.png" alt="image" width="170"/>
+	<img src="sample_imgs/ok3.png" alt="image" width="170"/>
+</p>
 
 
 Examples for not usable pictures:
-![My Image](sample_imgs/bad1.png)
-![My Image](sample_imgs/bad2.png)
-![My Image](sample_imgs/bad3.png)
-![My Image](sample_imgs/bad4.png)
+
+<p float="left">
+	<img src="sample_imgs/bad1.png" alt="image" width="170"/>
+	<img src="sample_imgs/bad2.png" alt="image" width="170"/>
+	<img src="sample_imgs/bad3.png" alt="image" width="170"/>
+	<img src="sample_imgs/bad4.png" alt="image" width="170"/>
+</p>
+
 
 ## Measure Pollen Area
 
@@ -33,6 +47,7 @@ Examples for not usable pictures:
 
 4. The data is saved as data/pollen_area.csv with the format: image, pixel_area, area. The masks created in the process are saved in data/masks. 
 
+
 ## Measure Model Performance on your dataset
 
 1. Follow the steps to measure pollen area.
@@ -41,15 +56,24 @@ Examples for not usable pictures:
 
 3. Run analyze/area_test.py
 
-4. A scatter plot to compare the area from the masks is compared to the area of the manually created masks. Further, 
-area of the masks manually and by the model created and the [dice coefficent](https://towardsdatascience.com/metrics-to-evaluate-your-semantic-segmentation-model-6bcb99639aa2) are saved to data/model_test.csv
+4. A scatter plot is displayed to compare the area from the masks created by the model to ground truth. Further, 
+area of the masks created manually and by the model, as well as 
+the [dice coefficent](https://towardsdatascience.com/metrics-to-evaluate-your-semantic-segmentation-model-6bcb99639aa2) are saved to data/model_test.csv
+
 
 ## Fine-tune the Model
+
 1. Put the training images in data/images/
 
-2. Put the manually segmented masks in the data/masks_manual/ folder. The masks should have a tranparent background and white when a pixel belongs to the pollen. E.g. [GIMP](https://www.gimp.org/) can be used to create the masks.
+2. Put the manually created masks in the data/masks_manual/ folder. The masks should have a tranparent background. The pixels that
+belong to the pollen should be colored white. E.g. [GIMP](https://www.gimp.org/) can be used to create the masks.
 
-3. Run train_segmentation/train.py
+3. Run train_segmentation/train.py. By default, this runs for 5001 training steps. Every 100 iterations, a line chart of train and validation loss (binary cross-entropy) as well as 
+the sum of squared differences of predicted area and ground truth are displayed. The model is saved once every 500 steps in train_segmentation/iteration_nr.torch. 
+Note that the pretrained model may be overwritten.
 
-## Acknowledgments
+4. A listalidation 
+
+
+
 
