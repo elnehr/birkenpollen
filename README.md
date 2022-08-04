@@ -52,7 +52,8 @@ Examples for unsuitable pictures:
 
 1. Follow the steps to measure pollen area.
 
-2. Put the manually segmented masks in the data/masks_manual/ folder. The masks should have a tranparent background and white when a pixel belongs to the pollen. E.g. [GIMP](https://www.gimp.org/) can be used to create the masks.
+2. Put the manually segmented masks in the data/masks_manual/ folder. The masks should have a tranparent background and white when a pixel belongs to the pollen. 
+The masks have to have the same file name as the associated picture. E.g. [GIMP](https://www.gimp.org/) can be used to create the masks.
 
 3. Run analyze/area_test.py
 
@@ -66,7 +67,7 @@ the [dice coefficent](https://towardsdatascience.com/metrics-to-evaluate-your-se
 1. Put the training images in data/images/
 
 2. Put the manually created masks in the data/masks_manual/ folder. The masks should have a tranparent background. The pixels that
-belong to the pollen should be colored white. E.g. [GIMP](https://www.gimp.org/) can be used to create the masks.
+belong to the pollen should be colored white. The masks have to have the same file name as the associated picture. E.g. [GIMP](https://www.gimp.org/) can be used to create the masks.
 
 3. Run train_segmentation/train.py. By default, this runs for 5001 training steps. Every 100 iterations, a line chart of train and validation loss (binary cross-entropy) as well as 
 the sum of squared differences of predicted area on the validation set and ground truth are displayed. The loss values are saved in train_segmentation/loss.csv
