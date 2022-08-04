@@ -46,7 +46,10 @@ def LoadBatch(image_list): # Load batch of images
 #--------------Load and set net and optimizer-------------------------------------
 device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
 print(device)
-Net = torchvision.models.segmentation.deeplabv3_resnet50(pretrained=True) # Load net
+Net = torchvision.models.segmentation.deeplabv3_resnet50(pretrained=True)
+
+# Load net from 5000.torch
+Net =
 Net.classifier[4] = torch.nn.Conv2d(256, 1, kernel_size=(1, 1), stride=(1, 1)) # Change final layer to 2 classes
 Net=Net.to(device)
 optimizer=torch.optim.Adam(params=Net.parameters(),lr=Learning_Rate) # Create adam optimizer

@@ -7,9 +7,9 @@ based on code by [M. S. Minhas](https://github.com/msminhas93/DeepLabv3FineTunin
 
 To use this tool [Python 3](https://www.python.org/downloads/) is required. To install the dependencies, run the following terminal command:
 
-'''
+```
 pip install -r requirements.txt
-'''
+```
 
 
 ## Picture Format
@@ -18,7 +18,7 @@ The pictures used should contain a single pollen in the center of the image that
 pose a problem if it's not in front of the pollen of interest.  The file format must be .png
 
 
-Examples for usable pictures:
+Examples for suitable pictures:
 
 <p float="left">
 	<img src="sample_imgs/ok1.png" alt="image" width="170"/>
@@ -27,13 +27,13 @@ Examples for usable pictures:
 </p>
 
 
-Examples for not usable pictures:
+Examples for unsuitable pictures:
 
 <p float="left">
 	<img src="sample_imgs/bad1.png" alt="image" width="170"/>
 	<img src="sample_imgs/bad2.png" alt="image" width="170"/>
 	<img src="sample_imgs/bad3.png" alt="image" width="170"/>
-	<img src="sample_imgs/bad4.png" alt="image" width="170"/>
+	<img src="sample_imgs/bad4.PNG" alt="image" width="170"/>
 </p>
 
 
@@ -69,10 +69,12 @@ the [dice coefficent](https://towardsdatascience.com/metrics-to-evaluate-your-se
 belong to the pollen should be colored white. E.g. [GIMP](https://www.gimp.org/) can be used to create the masks.
 
 3. Run train_segmentation/train.py. By default, this runs for 5001 training steps. Every 100 iterations, a line chart of train and validation loss (binary cross-entropy) as well as 
-the sum of squared differences of predicted area and ground truth are displayed. The model is saved once every 500 steps in train_segmentation/iteration_nr.torch. 
+the sum of squared differences of predicted area on the validation set and ground truth are displayed. The loss values are saved in train_segmentation/loss.csv
+
+The model is saved once every 500 steps in train_segmentation/iteration_nr.torch. 
 Note that the pretrained model may be overwritten.
 
-4. A listalidation 
+
 
 
 
