@@ -23,7 +23,7 @@ device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cp
 Net = torchvision.models.segmentation.deeplabv3_resnet50(pretrained=True)  # Load net
 Net.classifier[4] = torch.nn.Conv2d(256, 1, kernel_size=(1, 1), stride=(1, 1))  # Change final layer to 1 classes
 Net = Net.to(device)  # Set net to GPU or CPU
-Net.load_state_dict(torch.load(modelPath)) # Load trained model
+Net.load_state_dict(torch.load(modelPath, map_location=device)) # Load trained model
 Net.eval() # Set to evaluation mode
 
 def image_with_mask(imagePath):

@@ -11,3 +11,5 @@ analyze_model/__pycache__/
 Run_get_area.bat
 0.torch
 data/*.csv
+analyze/_pycache_/
+analyze/model_test.csv
