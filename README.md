@@ -5,7 +5,8 @@ based on code by [M. S. Minhas](https://github.com/msminhas93/DeepLabv3FineTunin
 
 ## Get started
 
-To use this tool [Python 3](https://www.python.org/downloads/) is required. To install the dependencies, run the following terminal command:
+To use this tool [Python 3](https://www.python.org/downloads/) is required. To install the dependencies, run the following terminal 
+command in the project directory (path/to/birkenpollen_main):
 
 ```
 pip install -r requirements.txt
@@ -48,11 +49,20 @@ Examples for unsuitable pictures:
 4. The data is saved as data/pollen_area.csv with the format: image, pixel_area, area. The masks created in the process are saved in data/masks. 
 
 
+## Measure Pollen Area
+
+1. Put the images of the pollen that should be analyzed in data/images/
+
+2. Run analyze/get_images_with_masks.py
+
+3. The images with a grey overlay for the masks are saved in data/images_with_masks/
+
+
 ## Measure Model Performance on your dataset
 
 1. Follow the steps to measure pollen area.
 
-2. Put the manually segmented masks in the data/masks_manual/ folder. The masks should have a tranparent background and white when a pixel belongs to the pollen. 
+2. Put the manually segmented masks in the data/masks_manual/ directory. The masks should have a tranparent background and white when a pixel belongs to the pollen. 
 The masks have to have the same file name as the associated picture. E.g. [GIMP](https://www.gimp.org/) can be used to create the masks.
 
 3. Run analyze/area_test.py
@@ -66,7 +76,7 @@ the [dice coefficent](https://towardsdatascience.com/metrics-to-evaluate-your-se
 
 1. Put the training images in data/images/
 
-2. Put the manually created masks in the data/masks_manual/ folder. The masks should have a tranparent background. The pixels that
+2. Put the manually created masks in the data/masks_manual/ directory. The masks should have a tranparent background. The pixels that
 belong to the pollen should be colored white. The masks have to have the same file name as the associated picture. E.g. [GIMP](https://www.gimp.org/) can be used to create the masks.
 
 3. Run train_segmentation/train.py. By default, this runs for 5001 training steps. Every 100 iterations, a line chart of train and validation loss (binary cross-entropy) as well as 

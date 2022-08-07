@@ -7,7 +7,7 @@ cut_images/
 segmentation/
 analyze_model/model_test.csv
 train_segmentation/*.csv
-analyze_model/__pycache__/
+analyze/__pycache__/
 Run_get_area.bat
 0.torch
 data/*.csv
