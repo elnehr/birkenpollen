@@ -30,8 +30,8 @@ def image_with_mask(imagePath):
     Img = PIL.Image.open(imagePath) # load test image
     Img = np.array(Img)[:, :, 0:3]
     height_orgin , widh_orgin ,d = Img.shape # Get image original size
-    plt.imshow(Img[:,:,::-1])  # Show image
-    plt.show()
+    #plt.imshow(Img[:,:,::-1])  # Show image
+    #plt.show()
     Img = transformImg(Img)  # Transform to pytorch
     Img = torch.autograd.Variable(Img, requires_grad=False).to(device).unsqueeze(0)
     with torch.no_grad():
@@ -43,12 +43,12 @@ def image_with_mask(imagePath):
 
     seg = Prd.cpu().detach().numpy()  # Get  prediction classes
 
-    plt.imshow(seg)  # display image
+    #plt.imshow(seg)  # display image
     #plt.imshow(np.where(seg>0.6,1,0))  # display image
-    plt.colorbar()
-    plt.show()
+    #plt.colorbar()
+    #plt.show()
 
-    boolean_mask = (Prd>0.44)
+    boolean_mask = (Prd>0.4)
     img = read_image(imagePath)
     transform  = T.Resize((height_orgin , widh_orgin))
     img = transform(img)
@@ -58,6 +58,7 @@ def image_with_mask(imagePath):
 
 for image in ListImages:
     image = image.replace('Ã¼', 'ü')
+    print(image)
     img = image_with_mask(os.path.join(ImageFolder, image))
     target_folder = os.path.join(os.path.dirname( __file__ ), '..', 'data/images_with_masks/')
     img.save(target_folder + image)

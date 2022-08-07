@@ -7,12 +7,13 @@ import PIL
 import pandas as pd
 import matplotlib.pyplot as plt
 
+
 Learning_Rate=1e-5
 width=height=250 # image width and height
 batchSize=3
 
 TrainFolder = os.path.join(os.path.dirname(__file__), '..', 'data/images/')
-MaskFolder = os.path.join(os.path.dirname(__file__), '..', 'data/masks/')
+MaskFolder = os.path.join(os.path.dirname(__file__), '..', 'data/masks_manual/')
 ListImages = os.listdir(os.path.join(TrainFolder)) # Create list of images
 ListImages = [x for x in ListImages if not x.startswith('.')]
 
@@ -77,7 +78,7 @@ def visualize_loss():  # visualize loss values as a line plot
     plt.plot(df['Iteration'], df['Test Loss'], label='Validation Loss')
     plt.legend()
     plt.show()
-    plt.plot(df['Iteration'], df['square_diff'], label='Sum of squared differences')
+    plt.plot(df['Iteration'], df['square_diff'], label='Sum of squared error')
     plt.legend()
     plt.show()
 
@@ -124,7 +125,7 @@ def train():  # train network
 
 
 # save test_list to csv file
-#test_list_csv = pd.DataFrame(list(test_list))
+#test_list_csv =pd.DataFrame(list(test_list))
 #test_list_csv.to_csv("test_list.csv", index=False)
 
 train() # Train network

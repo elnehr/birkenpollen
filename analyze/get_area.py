@@ -7,14 +7,12 @@ import matplotlib.pyplot as plt
 from get_masks import get_masks
 
 
-
-
 MaskFolder = os.path.join(os.path.dirname(__file__), '..', 'data/masks/')
+
 
 def set_scale(): # open a pop up window to input the scale from pixel to micrometer (in this case 1 pixel = 1 micrometer)
     scale = input('Enter the scale in micrometer per pixel: ')
     return scale
-
 
 
 def get_area(maskfolder):

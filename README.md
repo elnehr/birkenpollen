@@ -70,7 +70,7 @@ the [dice coefficent](https://towardsdatascience.com/metrics-to-evaluate-your-se
 belong to the pollen should be colored white. The masks have to have the same file name as the associated picture. E.g. [GIMP](https://www.gimp.org/) can be used to create the masks.
 
 3. Run train_segmentation/train.py. By default, this runs for 5001 training steps. Every 100 iterations, a line chart of train and validation loss (binary cross-entropy) as well as 
-the sum of squared differences of predicted area on the validation set and ground truth are displayed. The loss values are saved in train_segmentation/loss.csv
+the sum of squared errors of predicted area on the validation set per batch are displayed. The loss values are saved in train_segmentation/loss.csv
 
 The model is saved once every 500 steps in train_segmentation/iteration_nr.torch. 
 Note that the pretrained model may be overwritten.

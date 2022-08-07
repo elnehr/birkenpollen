@@ -49,5 +49,5 @@ def get_masks(threshold):
         cv2.imencode(".png", boolean_mask)[1].tofile(os.path.join(target_folder, image))
 
 if __name__ == "__main__":
-    get_masks(0.44)
+    get_masks(0.56)
 

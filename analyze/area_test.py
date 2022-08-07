@@ -71,5 +71,24 @@ df.to_csv('model_test.csv')
 print(df)
 
 
+def test_threshold():
+    df = pd.DataFrame(columns=['threshold', 'dice_score'])
+    for threshold in range(400, 600, 5):
+        print("testing threshold: ", threshold/1000)
+        get_masks(threshold/1000)
+        df.loc[len(df)] = [threshold/1000, get_dice_coef()['dice_coef'].mean()]
+    return df
+
+
+#df3 = test_threshold()
+
+# plot the dice score vs the threshold
+#plt.plot(df3['threshold'], df3['dice_score'], 'ro')
+#plt.xlabel('threshold')
+#plt.ylabel('dice coefficient')
+#plt.show()
+
+
+
 
 
