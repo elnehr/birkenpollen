@@ -1,7 +1,8 @@
 import json
 import os
-from PIL import Image
+from PIL import Image, ImageSequence
 import pandas as pd
+
 
 # this finds our json files
 path_to_json = 'coordinates/'
@@ -16,14 +17,16 @@ for index, js in enumerate(json_files):
         json_text = json.load(json_file)
 
     for i, shape in enumerate(json_text['shapes']):
+        print(index, i)
         imagePath = json_text['imagePath']
         objectnr = i
         label = json_text['shapes'][i]['label']
         points = json_text['shapes'][i]['points']
-        jsons_data.loc[len(jsons_data)] = [imagePath, objectnr, label, points] #mistake here: index + i; index is the index of the json file, i is the index of the shape in the json file
+        jsons_data.loc[len(jsons_data)] = [imagePath, objectnr, label, points]
+        print(jsons_data)
 
+df = jsons_data
 
-df = jsons_data  #.loc[jsons_data['label'] == 'Betula', ]  # if you want to only get the Betula pollen
 df['imagePath'] = df['imagePath'].str.replace('Ã¼', 'ü')
 
 for index, row in df.iterrows():
@@ -32,14 +35,18 @@ for index, row in df.iterrows():
     x2 = row[3][1][0]
     y2 = row[3][1][1]
     img = Image.open("betula_jpgs/" + row['imagePath'])
-    img = img.crop((x1, y1, x2, y2))
 
-    path = 'cropped_imgs/' #+ row['imagePath'].split('.')[0] + "/"  # if you want to save the images in a different folder for each file
-    #isExist = os.path.exists(path)
-    #if not isExist:
-    #    # Create a new directory because it does not exist
-    #    os.makedirs(path)
+    for i, page in enumerate(ImageSequence.Iterator(img)):
+        img = page.crop((x1, y1, x2, y2))
 
-    img.save(path + row['imagePath'].split('.')[0] + "_n" + str(row[1]) + ".png")
+        path = 'cropped_imgs/' + row['imagePath'].split('.')[0] + "/"
+        isExist = os.path.exists(path)
+        if not isExist:
+            # Create a new directory because it does not exist
+            os.makedirs(path)
+
+        img.save(path + row['imagePath'].split('.')[0] + "_n" + str(row[1]) + "_p" + str(i) + ".png")
+
+
 
 
