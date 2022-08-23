@@ -6,6 +6,7 @@ import torchvision.transforms as tf
 import PIL
 import pandas as pd
 import matplotlib.pyplot as plt
+from load import load_model, get_device
 
 
 Learning_Rate=1e-5
@@ -24,6 +25,8 @@ train_list, test_list = torch.utils.data.random_split(ListImages, [train_size, t
 #----------------------------------------------Transform image-------------------------------------------------------------------
 transformImg=tf.Compose([tf.ToPILImage(),tf.Resize((height,width)),tf.ToTensor()])
 transformAnn=tf.Compose([tf.ToPILImage(),tf.Resize((height,width),tf.InterpolationMode.NEAREST),tf.ToTensor()])
+
+
 #---------------------Read image ---------------------------------------------------------
 def ReadRandomImage(image_list): # First lets load random image and  the corresponding annotation
     idx=np.random.randint(0,len(image_list))  # Select random image
@@ -45,20 +48,16 @@ def LoadBatch(image_list): # Load batch of images
     for i in range(batchSize):
         images[i],ann[i]=ReadRandomImage(image_list)
     return images, ann
+
+
 #--------------Load and set net and optimizer-------------------------------------
-device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
-if device == torch.device('cuda'):
-    print('CUDA-enabled GPU is used')
-else:
-    print('Warning: CPU is used, training will be very slow. Please consider using a CUDA-enabled GPU.')
-Net = torchvision.models.segmentation.deeplabv3_resnet50(pretrained=True)
-Net.classifier[4] = torch.nn.Conv2d(256, 1, kernel_size=(1, 1), stride=(1, 1)) # Change final layer to 1 class
-Net = Net.to(device)
-Net.load_state_dict(torch.load('5000.torch')) # Load net from 5000.torch
+device = get_device()
+Net = load_model('5000.torch', device) # Load net from 5000.torch
 optimizer = torch.optim.Adam(params=Net.parameters(),lr=Learning_Rate) # Create adam optimizer
 scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, 5001)
-#----------------Train--------------------------------------------------------------------------
 
+
+#----------------Train--------------------------------------------------------------------------
 #create pandas dataframe to save loss values
 df = pd.DataFrame(columns=['Iteration', 'Train Loss', 'Test Loss', 'square_diff'])
 
@@ -73,15 +72,6 @@ def test():  # compute test loss
     test_loss = Loss.data.cpu().numpy()
     return test_loss
 
-def visualize_loss():  # visualize loss values as a line plot
-    plt.plot(df['Iteration'], df['Train Loss'], label='Train Loss')
-    plt.plot(df['Iteration'], df['Test Loss'], label='Validation Loss')
-    plt.legend()
-    plt.show()
-    plt.plot(df['Iteration'], df['square_diff'], label='Sum of squared error')
-    plt.legend()
-    plt.show()
-
 def area_test():  # compares area of predicted mask and actual mask in test set
     images,ann=LoadBatch(test_list)
     images=torch.autograd.Variable(images,requires_grad=False).to(device)
@@ -93,12 +83,21 @@ def area_test():  # compares area of predicted mask and actual mask in test set
     area_diff = np.sum(np.square(Pred-ann))
     return area_diff
 
+def visualize_loss():  # visualize loss values as a line plot
+    plt.plot(df['Iteration'], df['Train Loss'], label='Train Loss')
+    plt.plot(df['Iteration'], df['Test Loss'], label='Validation Loss')
+    plt.legend()
+    plt.show()
+    plt.plot(df['Iteration'], df['square_diff'], label='Sum of squared error')
+    plt.legend()
+    plt.show()
+
 
 def train():  # train network
     for itr in range(5001): # Training loop with 5001 iterations
        images,ann=LoadBatch(train_list) # Load taining batch
-       images=torch.autograd.Variable(images,requires_grad=False).to(device) # Load image
-       ann = torch.autograd.Variable(ann, requires_grad=False).to(device) # Load annotation
+       images= images.to(device) # Load image
+       ann = ann.to(device) # Load annotation
        Pred=Net(images)['out'] # make prediction
        Pred=torch.sigmoid(Pred)
        Net.zero_grad()

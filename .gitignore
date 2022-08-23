@@ -9,5 +9,5 @@ analyze/__pycache__/
 *.bat
 0.torch
 data/*.csv
-analyze/_pycache_/
+train_segmentation/_pycache_/
 analyze/model_test.csv

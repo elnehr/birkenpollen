@@ -1,5 +1,4 @@
 import os
-
 import PIL
 import numpy as np
 import pandas as pd
@@ -31,7 +30,7 @@ def get_area(maskfolder):
     return df
 
 if __name__ == "__main__":
-    get_masks(0.44)
+    get_masks(0.56)
     scale= set_scale()
     df = get_area(MaskFolder)
     df["area"] = df["pixel_area"] * float(scale)**2

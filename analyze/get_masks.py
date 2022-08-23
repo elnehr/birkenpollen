@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import os
 import numpy as np
 import PIL
+from birkenpollen.train_segmentation.load import get_device, load_model, get_prediction
 
 ImageFolder= os.path.join(os.path.dirname(__file__), '..', 'data/images/')
 ListImages=os.listdir(os.path.join(ImageFolder)) # Create list of images
@@ -13,30 +14,17 @@ ListImages = [x for x in ListImages if not x.startswith('.')]
 
 modelPath = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'train_segmentation/5000.torch'))  # Path to trained model
 height=width=250
-transformImg = tf.Compose([tf.ToPILImage(), tf.Resize((height, width)), tf.ToTensor()])  # tf.Resize((300,600)),tf.RandomRotation(145)])#
 
-device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')  # Check if there is GPU if not set trainning to CPU (very slow)
-Net = torchvision.models.segmentation.deeplabv3_resnet50(pretrained=True)  # Load net
-Net.classifier[4] = torch.nn.Conv2d(256, 1, kernel_size=(1, 1), stride=(1, 1))  # Change final layer to 1 classes
-Net = Net.to(device)  # Set net to GPU or CPU
-Net.load_state_dict(torch.load(modelPath, map_location=device)) # Load trained model
+device = get_device()
+Net = load_model(modelPath, device) # Load net from 5000.torch
 Net.eval() # Set to evaluation mode
 print("Loaded model")
 
 def get_masks(threshold):
     for image in ListImages:
         image = image.replace('Ã¼', 'ü')
-        Img = PIL.Image.open(os.path.join(ImageFolder, image)) # load test image
-        Img = np.array(Img)[:, :, 0:3] # remove alpha channel
-        height_orgin , widh_orgin ,d = Img.shape # Get image original size
-        Img = transformImg(Img)  # Transform to pytorch
-        Img = torch.autograd.Variable(Img, requires_grad=False).to(device).unsqueeze(0)
-        with torch.no_grad():
-            Prd = Net(Img)['out']  # Run net
-        Prd = torch.sigmoid(Prd)
-        Prd = tf.Resize((height_orgin,widh_orgin))(Prd[0]) # Resize to original size
-        #visualize Prd
-        Prd = torch.squeeze(Prd) #reduce dimension to (width,height)
+        imagePath = os.path.join(ImageFolder, image)
+        Prd = get_prediction(imagePath, Net, device)
 
         boolean_mask = (Prd>threshold)
 
