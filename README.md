@@ -1,12 +1,13 @@
 # Using Semantic Segmentation to Measure Pollen Area
 This is a tool to measure the area of pollen in images. It uses a semantic segmentation model and is partly 
 based on code by [M. S. Minhas](https://github.com/msminhas93/DeepLabv3FineTuning).
+The pretrained model can be found in the train_segmentation folder. The data used for pretraining is saved in the data/images and data/masks_manual folders.
 
 
 ## Get started
 
 To use this tool [Python 3](https://www.python.org/downloads/) is required. To install the dependencies, run the following terminal 
-command in the project directory (path/to/birkenpollen_main):
+command in the project directory:
 
 ```
 pip install -r requirements.txt
@@ -15,8 +16,7 @@ pip install -r requirements.txt
 
 ## Picture Format
 
-The pictures used should contain a single pollen in the center of the image that isn't touching the image borders. Parts of other pollen and pollution in the picture does not 
-pose a problem if it's not in front of the pollen of interest.  The file format must be .png
+The pictures used should contain a single pollen grain in the center of the image that isn't touching the image borders. Parts of other pollen and pollution in the picture does not pose a problem if it's not in front of the pollen of interest.  The file format must be .png
 
 
 Examples for suitable pictures:

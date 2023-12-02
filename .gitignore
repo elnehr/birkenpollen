@@ -1,8 +1,3 @@
-cut_images/betula_jpgs2/
-cut_images/coordinates2/
-cut_images/cropped_imgs2/
-README_Kopie.md
-segmentation/
 analyze_model/model_test.csv
 train_segmentation/*.csv
 analyze/__pycache__/
@@ -10,4 +5,4 @@ analyze/__pycache__/
 0.torch
 data/*.csv
 train_segmentation/_pycache_/
-analyze/model_test.csv
+analyze/*.csv
