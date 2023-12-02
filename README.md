@@ -3,6 +3,8 @@ This is a tool to measure the area of pollen in images. It uses a semantic segme
 based on code by [M. S. Minhas](https://github.com/msminhas93/DeepLabv3FineTuning).
 The pretrained model can be found in the train_segmentation folder. The data used for pretraining is saved in the data/images and data/masks_manual folders.
 
+For optimal use, this tool can be combined with the [Image Selection Tool](https://github.com/MartinTheuerkauf/birch-pollen), which automatically selects images suitable for pollen area measurements.
+
 
 ## Get started
 
